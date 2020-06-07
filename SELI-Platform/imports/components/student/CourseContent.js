@@ -388,6 +388,7 @@ export default class CourseContent extends React.Component {
                           handleControlMessage={this.props.handleControlMessage.bind(this)}
                           key={Math.random()}
                           language={this.props.language}
+                          saveInteractionLog={this.props.logStudentInteraction.bind(this)}
                         />
                       :
                       undefined

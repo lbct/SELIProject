@@ -40,6 +40,7 @@ export default class PdfItem extends React.Component {
   }
 
   printPdf = () => {
+    this.props.saveInteractionLog("pdf");
     var iframe = document.createElement('iframe');
     // iframe.id = 'pdfIframe'
     iframe.className='pdfIframe'
@@ -58,6 +59,7 @@ export default class PdfItem extends React.Component {
   }
 
   download = () => {
+    this.props.saveInteractionLog("pdf");
     // for non-IE
     if (!window.ActiveXObject) {
       var save = document.createElement('a');
@@ -89,11 +91,13 @@ export default class PdfItem extends React.Component {
   }
 
   openNewTab = () => {
+    this.props.saveInteractionLog("pdf");
     var win = window.open(this.props.item.attributes.pdf.link, '_blank');
     win.focus();
   }
 
   read = () => {
+    this.props.saveInteractionLog("pdf");
     this.setState({ open: true });
   }
 

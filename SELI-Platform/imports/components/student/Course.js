@@ -5,6 +5,7 @@ import Loading from '../tools/Loading';
 import { Courses } from '../../../lib/CourseCollection';
 import { Activities } from '../../../lib/ActivitiesCollection';
 import { Comments } from '../../../lib/CommentsCollection';
+import { StudentResourceLog } from '../../../lib/StudentResourceInteractionCollection';
 import CourseMenu from './CourseMenu';
 import CoursePresentation from './CoursePresentation';
 import CourseContent from './CourseContent';
@@ -353,6 +354,15 @@ export default class Course extends React.Component {
     });
   };
 
+  logStudentInteraction(type){
+    StudentResourceLog.insert({ 
+      "UserId": Meteor.userId(), 
+      "CourseId" : this.state.course._id, 
+      "Datetime": new Date(), 
+      "Resource": type 
+    });
+  }
+
   showCourseStories = () => {
     this.setState({
       loadingStories: true,
@@ -435,6 +445,7 @@ export default class Course extends React.Component {
               toComplete={this.state.toComplete}
               toResolve={this.state.toResolve}
               language={this.props.language}
+              logStudentInteraction={this.logStudentInteraction.bind(this)}
             />
           :
           undefined

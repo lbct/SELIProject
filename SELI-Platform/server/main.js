@@ -13,6 +13,7 @@ import '../lib/usersUtil';
 import '../lib/sendVerificationEmail';
 import '../lib/changeAccountInformation';
 import '../lib/StudentLogCollection';
+import '../lib/StudentResourceInteractionCollection'
 import '../lib/storyTellingVideo';
 
 /**
